@@ -178,9 +178,15 @@
                 }
                 if (n.value == "ce") {
                     $scope.result = "";
+                    arr = [];
+                    previousType = ""
+                    temp = "";
                 } else if (n.value == "c") {
                     $scope.result = "";
                     $scope.history = [];
+                    arr = [];
+                    previousType = ""
+                    temp = "";
                 } else if (n.type != "equal") {
                     $scope.result += n.value;
                     if (n.type == "operator") {
@@ -199,6 +205,7 @@
                     } else {
                         temp += n.value;
                     }
+                    previousType = n.type;
                 } else {
 
                     if (previousType == "operator") {
@@ -218,9 +225,8 @@
                     previousType = "";
                     temp = "";
                     $scope.result = "";
+                    previousType = n.type;
                 }
-
-                previousType = n.type;
 
             };
 
